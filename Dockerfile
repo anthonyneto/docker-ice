@@ -7,12 +7,19 @@ RUN apt update \
         python-setuptools \
         python-pip
 
-RUN git clone https://github.com/Snepsts/Ice \
-    && cd Ice \
-    && easy_install pip \
-    && python setup.py install
+RUN useradd -ms /bin/bash steam
 
-WORKDIR '/Ice'
+RUN cd /home/steam \
+    && git clone https://github.com/Snepsts/Ice \
+    && cd Ice \
+    && python setup.py install \
+    && chown -R steam:steam /home/steam/Ice
+
+USER steam
+
+RUN mkdir -p /home/steam/.local/share
+
+WORKDIR '/home/steam/Ice'
 
 ENTRYPOINT /usr/bin/python -m ice
 CMD ["-h"]

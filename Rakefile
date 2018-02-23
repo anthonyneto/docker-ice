@@ -1,4 +1,4 @@
-registry = 'docker-registry-private.theneto.com'
+registry = 'anthonyneto'
 name = File.basename(__dir__)
 version = 'latest'
 
