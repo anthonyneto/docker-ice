@@ -10,7 +10,7 @@ RUN apt update \
 RUN useradd -ms /bin/bash -u 1001 steam
 
 RUN cd /home/steam \
-    && git clone https://github.com/Snepsts/Ice \
+    && git clone https://github.com/SonicBoom89/Ice \
     && cd Ice \
     && python setup.py install \
     && chown -R steam:steam /home/steam/Ice
