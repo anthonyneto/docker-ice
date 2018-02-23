@@ -7,7 +7,7 @@ RUN apt update \
         python-setuptools \
         python-pip
 
-RUN useradd -ms /bin/bash steam
+RUN useradd -ms /bin/bash -u 1001 steam
 
 RUN cd /home/steam \
     && git clone https://github.com/Snepsts/Ice \
